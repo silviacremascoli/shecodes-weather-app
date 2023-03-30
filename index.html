@@ -15,88 +15,101 @@
   </head>
   <body>
     <div class="container">
-      <div class="weather-app">
-        <form>
-          <div class="row">
-            <div class="col-9">
-              <input
-                type="search"
-                placeholder="Search a city..."
-                class="form-control search-input"
-              />
+      <div class="weather-app-container">
+        <div class="weather-app">
+          <form>
+            <div class="row">
+              <div class="col-9">
+                <input
+                  type="search"
+                  placeholder="Search a city..."
+                  class="form-control search-input"
+                />
+              </div>
+              <div class="col-3 p-0">
+                <input type="submit" class="btn btn-primary w-100" value="🔍" />
+              </div>
             </div>
-            <div class="col-3 p-0">
-              <input type="submit" class="btn btn-primary w-100" value="🔍" />
-            </div>
-          </div>
-        </form>
-        <hr />
-        <div class="weather-info">
-          <div class="row">
-            <div class="col-6">
-              <h1>Auckland</h1>
-              <ul>
-                <li>Thursday 11:35, broken clouds</li>
-                <li>Humidity: 50%</li>
-                <li>Wind speed: 5 km/h</li>
-              </ul>
-            </div>
-            <div class="col-6">
-              <div class="container d-flex justify-content-end">
-                <div class="weather-icon">
+          </form>
+          <hr />
+          <div class="weather-info">
+            <div class="row">
+              <div class="col-6">
+                <h1>Auckland</h1>
+                <ul>
+                  <li>Thursday 11:35, broken clouds</li>
+                  <li>Humidity: 50%</li>
+                  <li>Wind speed: 5 km/h</li>
+                </ul>
+              </div>
+              <div class="col-6">
+                <div class="d-flex weather-temperature justify-content-end">
                   <img
                     src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAAb5JREFUeNrtmtuNgzAQRSmBElwCJbgESuBzy6AESnAJlEAJ/PJHOqAD73g10QJa8sJ4huUiXSlyHMX3jM34lXnvsysrAwAAAAAAAAAAAAAAAAAAAIDfwg8ff/sypIrkSD3Jb6jnOqGuyRI/0QGQCUtqHxh+pvBbezoAbLzbYXytLgWI3QCokTmpiWh8rUYtADbfH2h+/p7IVQGgBhWkKYH5u8bwnyoAcORTmp9DyEUBJOz2m8NBGkAjaD76i/EtAJzqvBJZCQCdIgBdUgDKoh+tF7wDoFUIoE0CgBc2XqnyFAAqYZNhtVjyMLT8OZTVoX3DMBiSI00kz5q4zMQA4KRy/rPZHxksVsbXCt8VewH0QuZzanxQ/Ud0a478I/Pz+mYPAInoFxzh/gWDr8idCYBj83Uk8z+94CMAQhmgZABTRAD+LD0gzDYNj31/gBbZQRuAavZ2PwrAIjtoAlCx8ZI0Hmx+kR00pMFuZt4nltMwEbpHfxQAMGmYCtsEY35T4ouhTPBRsRw+C4Brb4hcfksMm6LYFsfBCI7GcDiK43FckMAVGVySuto1OdwUBQAAAAAAAAAAAAAAAAAA+Pf6Bm5v6/1bJGiwAAAAAElFTkSuQmCC"
-                    alt="sun-with-cloud"
+                    alt="Clear"
+                    id="icon"
                   />
+                  <div>
+                    <strong id="temperature">10</strong
+                    ><span id="units"> °C | °F</span>
+                  </div>
                 </div>
-                <div class="temperature">
-                  <span class="degrees">7</span>
-                  <span class="degrees-type">°C</span>
+                <!-- <div class="container d-flex justify-content-end">
+                  <div class="weather-icon">
+                    <img
+                      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAAb5JREFUeNrtmtuNgzAQRSmBElwCJbgESuBzy6AESnAJlEAJ/PJHOqAD73g10QJa8sJ4huUiXSlyHMX3jM34lXnvsysrAwAAAAAAAAAAAAAAAAAAAIDfwg8ff/sypIrkSD3Jb6jnOqGuyRI/0QGQCUtqHxh+pvBbezoAbLzbYXytLgWI3QCokTmpiWh8rUYtADbfH2h+/p7IVQGgBhWkKYH5u8bwnyoAcORTmp9DyEUBJOz2m8NBGkAjaD76i/EtAJzqvBJZCQCdIgBdUgDKoh+tF7wDoFUIoE0CgBc2XqnyFAAqYZNhtVjyMLT8OZTVoX3DMBiSI00kz5q4zMQA4KRy/rPZHxksVsbXCt8VewH0QuZzanxQ/Ud0a478I/Pz+mYPAInoFxzh/gWDr8idCYBj83Uk8z+94CMAQhmgZABTRAD+LD0gzDYNj31/gBbZQRuAavZ2PwrAIjtoAlCx8ZI0Hmx+kR00pMFuZt4nltMwEbpHfxQAMGmYCtsEY35T4ouhTPBRsRw+C4Brb4hcfksMm6LYFsfBCI7GcDiK43FckMAVGVySuto1OdwUBQAAAAAAAAAAAAAAAAAA+Pf6Bm5v6/1bJGiwAAAAAElFTkSuQmCC"
+                      alt="sun-with-cloud"
+                    />
+                  </div>
+                  <div class="temperature">
+                    <span class="degrees">7</span>
+                    <span class="degrees-type">°C</span>
+                  </div>
+                </div> -->
+              </div>
+            </div>
+          </div>
+          <hr />
+          <div class="weather-forecast">
+            <div class="row">
+              <div class="col">
+                <div class="weather-forecast-info">
+                  <div class="forecast-day">Monday</div>
+                  <img />
+                  <div class="forecast-temperature">12° / 10°</div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="weather-forecast-info">
+                  <div class="forecast-day">Tuesday</div>
+                  <img />
+                  <div class="forecast-temperature">12° / 10°</div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="weather-forecast-info">
+                  <div class="forecast-day">Wednesday</div>
+                  <img />
+                  <div class="forecast-temperature">12° / 10°</div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="weather-forecast-info">
+                  <div class="forecast-day">Thursday</div>
+                  <img />
+                  <div class="forecast-temperature">12° / 10°</div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="weather-forecast-info">
+                  <div class="forecast-day">Friday</div>
+                  <img />
+                  <div class="forecast-temperature">12° / 10°</div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="weather-forecast">
-          <div class="row">
-            <div class="col">
-              <div class="weather-forecast-info">
-                <div class="forecast-day">Monday</div>
-                <img />
-                <div class="forecast-temperature">12° / 10°</div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="weather-forecast-info">
-                <div class="forecast-day">Tuesday</div>
-                <img />
-                <div class="forecast-temperature">12° / 10°</div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="weather-forecast-info">
-                <div class="forecast-day">Wednesday</div>
-                <img />
-                <div class="forecast-temperature">12° / 10°</div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="weather-forecast-info">
-                <div class="forecast-day">Thursday</div>
-                <img />
-                <div class="forecast-temperature">12° / 10°</div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="weather-forecast-info">
-                <div class="forecast-day">Friday</div>
-                <img />
-                <div class="forecast-temperature">12° / 10°</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <hr />
         <small>
           This project was coded by Silvia Cremascoli and is open-sourced on
           <a
