@@ -1,6 +1,9 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
+form {
+  margin-bottom: 20px;
+}
 
 h1 {
   color: rgb(32, 33, 36);
@@ -22,8 +25,7 @@ li {
   list-style: none;
 }
 footer {
-  display: block;
-  margin: 0 auto;
+  text-align: center;
   font-size: 12px;
 }
 .weather-app {
@@ -38,6 +40,9 @@ footer {
   width: 64px;
   height: 64px;
 }
+.weather-description {
+  text-align: right;
+}
 #temperature {
   color: rgb(32, 33, 36);
   font-size: 64px;
@@ -47,4 +52,8 @@ footer {
 #units {
   position: relative;
   top: -34px;
+}
+#description {
+  text-transform: capitalize;
+  text-align: center;
 }
