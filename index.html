@@ -14,7 +14,93 @@
     <title>🌤️ My weather app ☀️</title>
   </head>
   <body>
-    <div class="container"></div>
+    <div class="container">
+      <form>
+        <div class="row">
+          <div class="col-9">
+            <input
+              type="search"
+              placeholder="Search a city..."
+              class="form-control search-input"
+            />
+          </div>
+          <div class="col-3 p-0">
+            <input type="submit" class="btn btn-primary w-100" value="🔍" />
+          </div>
+        </div>
+      </form>
+      <hr />
+      <div class="weather-info">
+        <div class="row">
+          <div class="col-6">
+            <h1>San Francisco</h1>
+            <ul>
+              <li>Thursday 11:35, broken clouds</li>
+              <li>Humidity: 50%</li>
+              <li>Wind speed: 5 km/h</li>
+            </ul>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-8">
+            <div class="container d-flex justify-content-end">
+              <div class="weather-icon"></div>
+              <div class="temperature">
+                <span class="degrees">7</span>
+                <span class="degrees-type">°C</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="weather-forecast">
+        <div class="row">
+          <div class="col">
+            <div class="weather-forecast-info">
+              <div class="forecast-day">Monday</div>
+              <img />
+              <div class="forecast-temperature">12° / 10°</div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="weather-forecast-info">
+              <div class="forecast-day">Tuesday</div>
+              <img />
+              <div class="forecast-temperature">12° / 10°</div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="weather-forecast-info">
+              <div class="forecast-day">Wednesday</div>
+              <img />
+              <div class="forecast-temperature">12° / 10°</div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="weather-forecast-info">
+              <div class="forecast-day">Thursday</div>
+              <img />
+              <div class="forecast-temperature">12° / 10°</div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="weather-forecast-info">
+              <div class="forecast-day">Friday</div>
+              <img />
+              <div class="forecast-temperature">12° / 10°</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr />
+      <footer>
+        This project was coded by Silvia Cremascoli and is open-sourced on
+        <a
+          href="https://github.com/silviacremascoli/shecodes-weather-app"
+          target="_blank"
+          >GitHub</a
+        >
+        🚀
+      </footer>
+    </div>
     <script src="src/app.js"></script>
   </body>
 </html>
