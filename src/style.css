@@ -15,18 +15,21 @@ ul {
   padding: 0;
 }
 li {
-  color: rgb(32, 33, 36);
+  color: rgba(32, 33, 36, 0.7);
   font-size: 16px;
   font-weight: 100;
   line-height: 19px;
   list-style: none;
 }
-.weather-app-container {
-  max-width: 600px;
-  margin: 30px auto;
+footer {
+  display: block;
+  margin: 0 auto;
+  font-size: 12px;
 }
 .weather-app {
   padding: 20px;
+  max-width: 600px;
+  margin: 20px auto;
   border: 1px solid #dadde1;
   border-radius: 8px;
 }
