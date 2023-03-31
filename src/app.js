@@ -22,10 +22,10 @@ function formatDate(timestamp) {
 }
 
 function showTemperature(response) {
+  celsiusTemperature = Math.round(response.data.temperature.current);
   document.querySelector("#city").innerHTML = response.data.city;
-  document.querySelector("#temperature").innerHTML = Math.round(
-    response.data.temperature.current
-  );
+  document.querySelector("#temperature").innerHTML =
+    Math.round(celsiusTemperature);
   document.querySelector("#humidity").innerHTML =
     response.data.temperature.humidity;
   document.querySelector("#wind-speed").innerHTML = Math.round(
@@ -61,5 +61,29 @@ function getCity(event) {
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", getCity);
+
+let celsiusTemperature = null;
+
+function convertToFahrenheit(event) {
+  event.preventDefault();
+  celsiusDegrees.classList.remove("active");
+  fahrenheitDegrees.classList.add("active");
+  let fahrenheit = Math.round(celsiusTemperature * 1.8 + 32);
+  document.querySelector("#temperature").innerHTML = fahrenheit;
+}
+
+let fahrenheitDegrees = document.querySelector("#fahrenheit-degrees");
+fahrenheitDegrees.addEventListener("click", convertToFahrenheit);
+
+function convertToCelsius(event) {
+  event.preventDefault();
+  celsiusDegrees.classList.add("active");
+  fahrenheitDegrees.classList.remove("active");
+  document.querySelector("#temperature").innerHTML =
+    Math.round(celsiusTemperature);
+}
+
+let celsiusDegrees = document.querySelector("#celsius-degrees");
+celsiusDegrees.addEventListener("click", convertToCelsius);
 
 searchCity("San Francisco");

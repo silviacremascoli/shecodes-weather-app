@@ -2,6 +2,10 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+a {
+  text-decoration: none;
+}
+
 h1 {
   color: rgb(32, 33, 36);
   display: block;
@@ -36,6 +40,10 @@ footer {
   margin-right: 5px;
   width: 64px;
   height: 64px;
+}
+.weather-temperature .active {
+  color: rgb(32, 33, 36);
+  cursor: default;
 }
 .weather-description {
   text-align: right;
