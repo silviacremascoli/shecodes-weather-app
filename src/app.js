@@ -47,7 +47,19 @@ function showTemperature(response) {
     .setAttribute("alt", response.data.condition.description);
 }
 
-let city = "Nairobi";
-let apiKey = "372b3246a78f090c2oeea103eb8344t0";
-let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
-axios.get(apiUrl).then(showTemperature);
+function searchCity(city) {
+  let apiKey = "372b3246a78f090c2oeea103eb8344t0";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showTemperature);
+}
+
+function getCity(event) {
+  event.preventDefault();
+  let cityInput = document.querySelector("#search-input");
+  searchCity(cityInput.value);
+}
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", getCity);
+
+searchCity("San Francisco");

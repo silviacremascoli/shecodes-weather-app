@@ -1,9 +1,6 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
-form {
-  margin-bottom: 20px;
-}
 
 h1 {
   color: rgb(32, 33, 36);
@@ -41,7 +38,7 @@ footer {
   height: 64px;
 }
 .weather-description {
-  text-align: center;
+  text-align: right;
 }
 #temperature {
   color: rgb(32, 33, 36);
