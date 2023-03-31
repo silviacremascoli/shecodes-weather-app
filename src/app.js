@@ -28,8 +28,8 @@ function formatDate(timestamp) {
     "Friday",
     "Saturday",
   ];
-  let day = weekDays[date.getDay()];
-  return `${day}, ${hours}:${minutes}`;
+  let weekDay = weekDays[date.getDay()];
+  return `${weekDay}, ${hours}:${minutes} (last update)`;
 }
 
 function showTemperature(response) {
