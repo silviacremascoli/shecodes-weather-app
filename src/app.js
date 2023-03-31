@@ -56,6 +56,8 @@ function showTemperature(response) {
   document
     .querySelector("#icon")
     .setAttribute("alt", response.data.condition.description);
+  celsiusDegrees.classList.add("active");
+  fahrenheitDegrees.classList.remove("active");
 }
 
 function getCity(event) {
@@ -112,6 +114,6 @@ function convertToCelsius(event) {
 let celsiusDegrees = document.querySelector("#celsius-degrees");
 celsiusDegrees.addEventListener("click", convertToCelsius);
 
-searchCity("San Francisco");
+searchCity("Milan");
 
 backgroundColor();
