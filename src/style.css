@@ -41,7 +41,7 @@ footer {
   height: 64px;
 }
 .weather-description {
-  text-align: right;
+  text-align: center;
 }
 #temperature {
   color: rgb(32, 33, 36);

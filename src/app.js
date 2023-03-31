@@ -36,8 +36,18 @@ function showTemperature(response) {
   document.querySelector("#date").innerHTML = formatDate(
     response.data.time * 1000
   );
+  document
+    .querySelector("#icon")
+    .setAttribute(
+      "src",
+      `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
+    );
+  document
+    .querySelector("#icon")
+    .setAttribute("alt", response.data.condition.description);
 }
 
+let city = "Nairobi";
 let apiKey = "372b3246a78f090c2oeea103eb8344t0";
-let apiUrl = `https://api.shecodes.io/weather/v1/current?query=New York&key=${apiKey}&units=metric`;
+let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
 axios.get(apiUrl).then(showTemperature);
