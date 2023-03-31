@@ -1,3 +1,14 @@
+function backgroundColor() {
+  let time = new Date().getHours();
+  if (time > 6 && time < 20) {
+    document.querySelector("body").classList.add("day");
+    document.querySelector("body").classList.remove("night");
+  } else {
+    document.querySelector("body").classList.add("night");
+    document.querySelector("body").classList.remove("day");
+  }
+}
+
 function formatDate(timestamp) {
   let date = new Date(timestamp);
   let hours = date.getHours();
@@ -47,12 +58,6 @@ function showTemperature(response) {
     .setAttribute("alt", response.data.condition.description);
 }
 
-function searchCity(city) {
-  let apiKey = "372b3246a78f090c2oeea103eb8344t0";
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(showTemperature);
-}
-
 function getCity(event) {
   event.preventDefault();
   let cityInput = document.querySelector("#search-input");
@@ -62,6 +67,27 @@ function getCity(event) {
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", getCity);
 
+function getMyPosition(position) {
+  let latitude = position.coords.latitude;
+  let longitude = position.coords.longitude;
+  let apiKey = "372b3246a78f090c2oeea103eb8344t0";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${longitude}&lat=${latitude}&key=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showTemperature);
+}
+
+function getPosition(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(getMyPosition);
+}
+
+let locationButton = document.querySelector("#my-location-button");
+locationButton.addEventListener("click", getPosition);
+
+function searchCity(city) {
+  let apiKey = "372b3246a78f090c2oeea103eb8344t0";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showTemperature);
+}
 let celsiusTemperature = null;
 
 function convertToFahrenheit(event) {
@@ -87,3 +113,5 @@ let celsiusDegrees = document.querySelector("#celsius-degrees");
 celsiusDegrees.addEventListener("click", convertToCelsius);
 
 searchCity("San Francisco");
+
+backgroundColor();

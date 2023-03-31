@@ -29,12 +29,32 @@ footer {
   text-align: center;
   font-size: 12px;
 }
+.day {
+  background: radial-gradient(
+    circle at 10% 20%,
+    rgb(253, 239, 132) 0%,
+    rgb(247, 198, 169) 54.2%,
+    rgb(21, 186, 196) 100.3%
+  );
+  background-attachment: fixed;
+}
+.night {
+  background: linear-gradient(to top, #09203f 0%, #537895 100%);
+  background-attachment: fixed;
+  color: white;
+}
 .weather-app {
   padding: 20px;
   max-width: 600px;
   margin: 20px auto;
   border: 1px solid #dadde1;
   border-radius: 8px;
+  box-shadow: rgba(37, 39, 89, 0.09) 0px 5px 10px 0;
+  background: radial-gradient(
+    circle at 10% 20%,
+    rgba(216, 241, 230, 0.46) 0.1%,
+    rgba(233, 226, 226, 0.28) 80.1%
+  );
 }
 .weather-temperature img {
   margin-right: 5px;
