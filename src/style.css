@@ -39,12 +39,10 @@ footer {
   background-attachment: fixed;
 }
 .night {
-  background: linear-gradient(
-    89.7deg,
-    rgb(0, 0, 0) -10.7%,
-    rgb(53, 92, 125) 88.8%
-  );
+  background: linear-gradient(to bottom, #09203f 0%, #537895 100%);
   background-attachment: fixed;
+}
+.night-text {
   color: white;
 }
 .weather-app {
@@ -71,6 +69,18 @@ footer {
 }
 .weather-description {
   text-align: right;
+}
+.weather-forecast {
+  text-align: center;
+}
+.forecast-day {
+  font-size: 13px;
+}
+.forecast-temperature {
+  font-size: 12px;
+}
+.max-temp {
+  font-weight: bold;
 }
 #temperature {
   color: rgb(32, 33, 36);

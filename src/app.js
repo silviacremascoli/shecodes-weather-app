@@ -5,6 +5,7 @@ function backgroundColor() {
     document.querySelector("body").classList.remove("night");
   } else {
     document.querySelector("body").classList.add("night");
+    document.querySelector("footer").classList.add("night-text");
     document.querySelector("body").classList.remove("day");
   }
 }
