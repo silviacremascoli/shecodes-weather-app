@@ -5,6 +5,11 @@ function backgroundColor() {
     document.querySelector("body").classList.remove("night");
   } else {
     document.querySelector("body").classList.add("night");
+    document
+      .querySelector(".weather-app")
+      .classList.add("night-app-background");
+    document.querySelector("body").classList.add("night");
+    document.querySelector("#github-link").classList.add("night-text");
     document.querySelector("footer").classList.add("night-text");
     document.querySelector("body").classList.remove("day");
   }
@@ -35,15 +40,7 @@ function formatDate(timestamp) {
 
 function formatForecastDay(timestamp) {
   let date = new Date(timestamp * 1000);
-  let weekDays = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
+  let weekDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   let weekDay = weekDays[date.getDay()];
 
   return weekDay;
@@ -91,15 +88,14 @@ function displayForecast(response) {
 function getForecast(coordinates) {
   let apiKey = "372b3246a78f090c2oeea103eb8344t0";
   let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=metric`;
-  console.log(apiUrl);
   axios.get(apiUrl).then(displayForecast);
 }
 
 function showTemperature(response) {
-  celsiusTemperature = Math.round(response.data.temperature.current);
   document.querySelector("#city").innerHTML = response.data.city;
-  document.querySelector("#temperature").innerHTML =
-    Math.round(celsiusTemperature);
+  document.querySelector("#temperature").innerHTML = Math.round(
+    response.data.temperature.current
+  );
   document.querySelector("#humidity").innerHTML =
     response.data.temperature.humidity;
   document.querySelector("#wind-speed").innerHTML = Math.round(
@@ -119,8 +115,6 @@ function showTemperature(response) {
   document
     .querySelector("#icon")
     .setAttribute("alt", response.data.condition.description);
-  celsiusDegrees.classList.add("active");
-  fahrenheitDegrees.classList.remove("active");
 
   getForecast(response.data.coordinates);
 }
@@ -155,29 +149,6 @@ function searchCity(city) {
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showTemperature);
 }
-let celsiusTemperature = null;
-
-function convertToFahrenheit(event) {
-  event.preventDefault();
-  celsiusDegrees.classList.remove("active");
-  fahrenheitDegrees.classList.add("active");
-  let fahrenheit = Math.round(celsiusTemperature * 1.8 + 32);
-  document.querySelector("#temperature").innerHTML = fahrenheit;
-}
-
-let fahrenheitDegrees = document.querySelector("#fahrenheit-degrees");
-fahrenheitDegrees.addEventListener("click", convertToFahrenheit);
-
-function convertToCelsius(event) {
-  event.preventDefault();
-  celsiusDegrees.classList.add("active");
-  fahrenheitDegrees.classList.remove("active");
-  document.querySelector("#temperature").innerHTML =
-    Math.round(celsiusTemperature);
-}
-
-let celsiusDegrees = document.querySelector("#celsius-degrees");
-celsiusDegrees.addEventListener("click", convertToCelsius);
 
 searchCity("Milan");
 backgroundColor();

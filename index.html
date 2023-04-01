@@ -28,7 +28,12 @@
               />
             </div>
             <div class="col-2">
-              <input type="submit" class="btn btn-light w-100" value="🔍" />
+              <input
+                type="submit"
+                class="btn btn-light w-100"
+                id="search-button"
+                value="🔍"
+              />
             </div>
             <div class="col-2">
               <input
@@ -42,7 +47,7 @@
         </form>
         <div class="weather-info">
           <div class="row">
-            <div class="col-6">
+            <div class="col-6 city-details">
               <h1 id="city"></h1>
               <ul>
                 <li id="date"></li>
@@ -51,35 +56,32 @@
                 <li>Wind speed: <span id="wind-speed"></span> km/h</li>
               </ul>
             </div>
-            <div class="col-6">
+            <div class="col-6 temperature-details">
               <div class="row">
                 <div class="d-flex weather-temperature justify-content-end">
                   <img src="" alt="" id="icon" />
                   <div>
                     <strong id="temperature"></strong
-                    ><span id="units">
-                      <a href="#" id="celsius-degrees" class="active">°C</a>
-                      | <a href="#" id="fahrenheit-degrees">°F</a></span
-                    >
+                    ><span id="celsius-degrees">°C</span>
                   </div>
                 </div>
               </div>
               <div class="row">
-                <div class="weather-description">
+                <div class="col-md-auto weather-description">
                   <span id="description"></span>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <hr />
         <div class="weather-forecast" id="forecast"></div>
       </div>
       <footer>
-        This weather app was coded by Silvia Cremascoli and is open-sourced on
+        Coded by Silvia Cremascoli and open-sourced on
         <a
           href="https://github.com/silviacremascoli/shecodes-weather-app"
           target="_blank"
+          id="github-link"
           >GitHub</a
         >
         🚀
