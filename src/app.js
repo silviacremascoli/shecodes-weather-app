@@ -32,7 +32,7 @@ function formatDate(timestamp) {
     "Saturday",
   ];
   let weekDay = weekDays[date.getDay()];
-  return `${weekDay}, ${hours}:${minutes} (last update)`;
+  return `${weekDay}, ${hours}:${minutes}`;
 }
 
 function formatForecastDay(timestamp) {
@@ -68,7 +68,7 @@ function displayForecast(response) {
         <div class="forecast-temperature">
             <span class="max-temp">${Math.round(
               forecastDay.temperature.maximum
-            )}</span>° /
+            )}</span>°  
             <span class="min-temp">${Math.round(
               forecastDay.temperature.minimum
             )}</span>°
