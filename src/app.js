@@ -33,6 +33,36 @@ function formatDate(timestamp) {
   return `${weekDay}, ${hours}:${minutes} (last update)`;
 }
 
+function displayForecast() {
+  let forecast = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+  let days = ["Thursday", "Friday", "Saturday", "Sunday", "Monday"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+    <div class="col">
+        <div class="weather-forecast-info">
+            <div class="forecast-day">${day}</div>
+            <img
+            src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png"
+            alt=""
+            width="42px"
+            />
+        <div class="forecast-temperature">
+            <span class="max-temp">12</span>° /
+            <span class="min-temp">10</span>°
+        </div>
+        </div>
+    </div>
+    `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecast.innerHTML = forecastHTML;
+}
+
 function showTemperature(response) {
   celsiusTemperature = Math.round(response.data.temperature.current);
   document.querySelector("#city").innerHTML = response.data.city;
@@ -116,5 +146,5 @@ let celsiusDegrees = document.querySelector("#celsius-degrees");
 celsiusDegrees.addEventListener("click", convertToCelsius);
 
 searchCity("Milan");
-
+displayForecast();
 backgroundColor();
