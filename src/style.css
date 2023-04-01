@@ -56,12 +56,9 @@ a#github-link.night-text {
   max-width: 600px;
   margin: 40px auto 20px auto;
   border: 1px solid #dadde1;
-  border-radius: 8px;
+  border-radius: 10px;
   box-shadow: rgba(37, 39, 89, 0.09) 0px 10px 15px 0;
-  background: rgba(255, 255, 255, 0.5);
-}
-.night-app-background {
-  background: linear-gradient(to bottom, #accbee 0%, #e7f0fd 100%);
+  background: rgba(255, 255, 255, 0.6);
 }
 .city-details {
   padding-left: 20px;
@@ -71,8 +68,8 @@ a#github-link.night-text {
 }
 .weather-temperature img {
   margin-right: 5px;
-  width: 70px;
-  height: 70px;
+  width: 75px;
+  height: 75px;
 }
 .weather-description {
   text-align: right;
@@ -103,6 +100,10 @@ a#github-link.night-text {
 #description {
   text-transform: capitalize;
   padding-right: 10px;
+}
+#search-button,
+#my-location-button {
+  border: 1px solid rgba(32, 33, 36, 0.2);
 }
 #search-button:hover,
 #my-location-button:hover {

@@ -5,9 +5,6 @@ function backgroundColor() {
     document.querySelector("body").classList.remove("night");
   } else {
     document.querySelector("body").classList.add("night");
-    document
-      .querySelector(".weather-app")
-      .classList.add("night-app-background");
     document.querySelector("body").classList.add("night");
     document.querySelector("#github-link").classList.add("night-text");
     document.querySelector("footer").classList.add("night-text");
@@ -66,7 +63,7 @@ function displayForecast(response) {
               forecastDay.condition.icon
             }.png"
             alt=""
-            width="42px"
+            width="50px"
             />
         <div class="forecast-temperature">
             <span class="max-temp">${Math.round(
