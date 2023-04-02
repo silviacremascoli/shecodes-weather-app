@@ -77,6 +77,7 @@ a#github-link.night-text {
 .weather-forecast {
   text-align: center;
   margin-top: 20px;
+  margin-bottom: 10px;
 }
 .forecast-day {
   font-size: 13px;
