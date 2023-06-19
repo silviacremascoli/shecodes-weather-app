@@ -67,7 +67,11 @@ const displayForecast = (response) => {
 
 const getForecast = (coordinates) => {
   const apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(displayForecast);
+  try {
+    axios.get(apiUrl).then(displayForecast);
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 const showTemperature = (response) => {
@@ -107,7 +111,11 @@ const getMyPosition = (position) => {
   const latitude = position.coords.latitude;
   const longitude = position.coords.longitude;
   const apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${longitude}&lat=${latitude}&key=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(showTemperature);
+  try {
+    axios.get(apiUrl).then(showTemperature);
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 const locationButton = document.getElementById("my-location-button");
@@ -118,7 +126,11 @@ locationButton.addEventListener("click", (event) => {
 
 const searchCity = (city) => {
   const apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(showTemperature);
+  try {
+    axios.get(apiUrl).then(showTemperature);
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 searchCity("Milan");
