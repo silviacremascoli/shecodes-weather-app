@@ -1,5 +1,7 @@
+const apiKey = "372b3246a78f090c2oeea103eb8344t0";
+
 const backgroundColor = () => {
-  let time = new Date().getHours();
+  const time = new Date().getHours();
   if (time > 6 && time < 20) {
     document.querySelector("body").classList.add("day");
     document.querySelector("body").classList.remove("night");
@@ -13,14 +15,14 @@ const backgroundColor = () => {
 };
 
 const formatDate = (timestamp) => {
-  let date = new Date(timestamp * 1000);
-  let formattedDate = moment(date).format("dddd, HH:mm");
+  const date = new Date(timestamp * 1000);
+  const formattedDate = moment(date).format("dddd, HH:mm");
   return formattedDate;
 };
 
 const formatForecastDay = (timestamp) => {
-  let date = new Date(timestamp * 1000);
-  let formattedDate = moment(date).format("ddd");
+  const date = new Date(timestamp * 1000);
+  const formattedDate = moment(date).format("ddd");
   return formattedDate;
 };
 
@@ -64,8 +66,7 @@ const displayForecast = (response) => {
 };
 
 const getForecast = (coordinates) => {
-  let apiKey = "372b3246a78f090c2oeea103eb8344t0";
-  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=metric`;
+  const apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayForecast);
 };
 
@@ -98,15 +99,14 @@ const showTemperature = (response) => {
 const form = document.getElementById("search-form");
 form.addEventListener("submit", (event) => {
   event.preventDefault();
-  let cityInput = document.getElementById("search-input");
+  const cityInput = document.getElementById("search-input");
   searchCity(cityInput.value);
 });
 
 const getMyPosition = (position) => {
-  let latitude = position.coords.latitude;
-  let longitude = position.coords.longitude;
-  let apiKey = "372b3246a78f090c2oeea103eb8344t0";
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${longitude}&lat=${latitude}&key=${apiKey}&units=metric`;
+  const latitude = position.coords.latitude;
+  const longitude = position.coords.longitude;
+  const apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${longitude}&lat=${latitude}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showTemperature);
 };
 
@@ -117,8 +117,7 @@ locationButton.addEventListener("click", (event) => {
 });
 
 const searchCity = (city) => {
-  let apiKey = "372b3246a78f090c2oeea103eb8344t0";
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+  const apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showTemperature);
 };
 
