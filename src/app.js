@@ -16,14 +16,12 @@ const backgroundColor = () => {
 
 const formatDate = (timestamp) => {
   const date = new Date(timestamp * 1000);
-  const formattedDate = moment(date).format("dddd, HH:mm");
-  return formattedDate;
+  return moment(date).format("dddd, HH:mm");
 };
 
 const formatForecastDay = (timestamp) => {
   const date = new Date(timestamp * 1000);
-  const formattedDate = moment(date).format("ddd");
-  return formattedDate;
+  return moment(date).format("ddd");
 };
 
 const displayForecast = (response) => {
